@@ -13,4 +13,5 @@ def upload(request):
         return redirect('home')
     return render(request,'upload.html')
 def download(request,video_id):
-    return render(request,'download.html')
+    video=Video.objects.get(id=video_id)
+    return render(request,'download.html',{'video':video})
